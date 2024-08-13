@@ -1,4 +1,4 @@
-
+>
 ---///--------------------------------------------------------------\\\---
 ----------------------------------------------------------------------------------------------------------------------------------------------
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
@@ -6994,9 +6994,5 @@ end)
 end
 ----------------------------------------------------------------------------------------------------------------------------------------------
 -- Info
-local Mastery = Tabs.Hop:AddSection("Nhìn Cặc fl tiktok vinhroblox244 plz")
-Tabs.Info:AddButton({
-        Title = "TruongVinh",
-        Description = "user = truongvinh244",
-        Callback = function()
+local Mastery = Tabs.Info:AddSection("Nhìn Cặc fl tiktok vinhroblox244 plz")
 end
