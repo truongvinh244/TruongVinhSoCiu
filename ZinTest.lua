@@ -6995,4 +6995,10 @@ end
 ----------------------------------------------------------------------------------------------------------------------------------------------
 -- Info
 local Mastery = Tabs.Info:AddSection("Nhìn Cặc fl tiktok vinhroblox244 plz")
-end
+Tabs.Teleport:AddButton({
+    Title = "Yo",
+    Description = "",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelDressrosa")
+    end
+})
