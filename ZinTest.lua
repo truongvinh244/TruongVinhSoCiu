@@ -1,4 +1,4 @@
-
+>
 ---///--------------------------------------------------------------\\\---
 ----------------------------------------------------------------------------------------------------------------------------------------------
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
@@ -26,6 +26,7 @@ local Tabs = {
     Shop = Window:AddTab({ Title = "Shop", Icon = "shopping-cart" }),
 	Misc = Window:AddTab({ Title = "Misc", Icon = "list-plus" }),
     Hop = Window:AddTab({ Title = "Hop", Icon = "wifi" }),
+    Info = Window:AddTab({ Title = "Info", Icon = "list" }),
 }
 local Options = Fluent.Options
 do
