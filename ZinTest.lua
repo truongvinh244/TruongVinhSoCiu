@@ -1,4 +1,4 @@
->
+
 ---///--------------------------------------------------------------\\\---
 ----------------------------------------------------------------------------------------------------------------------------------------------
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
@@ -26,7 +26,6 @@ local Tabs = {
     Shop = Window:AddTab({ Title = "Shop", Icon = "shopping-cart" }),
 	Misc = Window:AddTab({ Title = "Misc", Icon = "list-plus" }),
     Hop = Window:AddTab({ Title = "Hop", Icon = "wifi" }),
-    Info = Window:AddTab({ Title = "Info", Icon = "list" }),
 }
 local Options = Fluent.Options
 do
@@ -6993,12 +6992,3 @@ spawn(function()
 end)
 end
 ----------------------------------------------------------------------------------------------------------------------------------------------
--- Info
-local Mastery = Tabs.Info:AddSection("Nhìn Cặc fl tiktok vinhroblox244 plz")
-Tabs.Teleport:AddButton({
-    Title = "Yo",
-    Description = "",
-    Callback = function()
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelDressrosa")
-    end
-})
