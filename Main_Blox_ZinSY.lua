@@ -6995,5 +6995,8 @@ end
 -- Tab Info - in4 Bydevtruongvinh244
 -- TruongVinhSoCiuTe
 -- CodeByVinhDepZaiKhoaiTo
-local Mastery = Tabs.Hop:AddSection("Trương Vinh")
-local Mastery = Tabs.Hop:AddSection("Plz FL Me")
+local Mastery = Tabs.Info:AddSection("Trương Vinh")
+local Mastery = Tabs.Info:AddSection("Plz FL Me")
+local Mastery = Tabs.Info:AddSection("tiktok = @vinhroblox244")
+local Mastery = Tabs.Info:AddSection("facebook = truongvinh244")
+local Mastery = Tabs.Info:AddSection("discord = truongvinh244")
