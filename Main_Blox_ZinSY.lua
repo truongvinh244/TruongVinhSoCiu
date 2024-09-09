@@ -2631,8 +2631,8 @@ end)
         end
         end
         end)
-        
-        
+    end    
+    end    
 --------------------------------------------------------------------------------------------------------------------------------------------
 
     local ToggleMobAura = Tabs.Main:AddToggle("ToggleMobAura", {Title = "Giết Mob Aura", Default = false })
