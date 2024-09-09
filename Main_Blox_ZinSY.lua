@@ -4343,7 +4343,7 @@ spawn(function()
 end
 
     if Second_Sea then
-    local ToggleVatChatKiDi = Tabs.Farm:AddToggle("ToggleVatChatKiDi", {Title = "Auto V.Chất Kì Dị", Default = false })
+    local ToggleVatChatKiDi = Tabs.Main:AddToggle("ToggleVatChatKiDi", {Title = "Auto V.Chất Kì Dị", Default = false })
     ToggleVatChatKiDi:OnChanged(function(Value)
         _G.Ectoplasm = Value
     end)
