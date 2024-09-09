@@ -3162,7 +3162,7 @@ end
 end
 end)
 
-local MiscFarm = Tabs.Main:AddSection("Misc Farm")
+local MiscFarm = Tabs.Farm:AddSection("bone & kata")
 
 if Third_Sea then
 local ToggleBone = Tabs.Main:AddToggle("ToggleBone", {Title = "Auto Farm Xương", Default = false })
