@@ -4203,9 +4203,10 @@ if Second_Sea then
         end)
     end
     
---- Farm
+--- Farm 🔥
 
 local MiscFarm = Tabs.Farm:AddSection("bone & kata")
+
 if Third_Sea then
 local ToggleBone = Tabs.Farm:AddToggle("ToggleBone", {Title = "Auto Farm Xương", Default = false })
 ToggleBone:OnChanged(function(Value)
