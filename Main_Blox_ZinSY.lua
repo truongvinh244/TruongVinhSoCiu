@@ -4389,8 +4389,8 @@ end
     end)
 end
 
-if Third_Sea then
-local RoughSea = Tabs.Main:AddSection("🦊 Kitsune 🦊")
+     if Third_Sea then
+      local RoughSea = Tabs.Main:AddSection("🦊 Kitsune 🦊")
 
 
       local ToggleEspKitsune = Tabs.Main:AddToggle("ToggleEspKitsune", {Title = "Định Vị Đảo Kitsune", Default = false })
@@ -4531,5 +4531,3 @@ if Third_Sea then
                 end
             end)
         end
-    end
-end
