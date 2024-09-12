@@ -26,6 +26,7 @@ local Tabs = {
     Shop = Window:AddTab({ Title = "Shop", Icon = "shopping-cart" }),
 	Misc = Window:AddTab({ Title = "Misc", Icon = "list-plus" }),
     Hop = Window:AddTab({ Title = "Hop", Icon = "wifi" }),
+    Info = Window:AddTab({ Title = "Info", Icon = "book" })
 }
 local Options = Fluent.Options
 do
@@ -6992,3 +6993,15 @@ spawn(function()
 end)
 end
 ----------------------------------------------------------------------------------------------------------------------------------------------
+local function copyTextToClipboard(text)
+  game:GetService("UserInputService").SetClipboard(text)
+  print("Copied", text, "to clipboard.")
+end
+
+Tabs.Info:AddButton({
+  Title = "Facebook",
+  Description = "user = truongvinh244",
+  Callback = function()
+    copyTextToClipboard("https://facebook.com/truongvinh244")
+  end
+})
