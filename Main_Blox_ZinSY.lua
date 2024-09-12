@@ -6993,26 +6993,14 @@ spawn(function()
 end)
 end
 ----------------------------------------------------------------------------------------------------------------------------------------------
-local function copyTextToClipboard(text)
-  if game:GetService("UserInputService") then -- Check for UserInputService
-    game:GetService("UserInputService").SetClipboard(text)
-    print("Copied", text, "to clipboard.")
-  else
-    print("UserInputService not available.")
-  end
-end
+local Info = Tabs.Info:AddSection("Info")
 
-local function handleButtonClick()
-  copyTextToClipboard("https://facebook.com/truongvinh244")
-  -- Add more actions here if needed
-end
-
-if Tabs and Tabs.Info and Tabs.Info:AddButton then -- Check Tabs object validity
-  Tabs.Info:AddButton({
+Tabs.info:AddButton({
     Title = "Facebook",
-    Description = "user = truongvinh244",
-    Callback = handleButtonClick,
-  })
-else
-  print("Tabs.Info object not found or AddButton method missing.")
-end
+    Description = "truongvinh244",
+    Callback = function()
+        local linkToCopy = "https://www.facebook.com/truongvinh244" -- Thay thế bằng link chính xác
+        setclipboard(linkToCopy)
+        print("Link đã được copy vào clipboard!")
+    end
+})
