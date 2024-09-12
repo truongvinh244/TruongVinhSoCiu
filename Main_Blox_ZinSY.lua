@@ -6994,7 +6994,7 @@ end)
 end
 ----------------------------------------------------------------------------------------------------------------------------------------------
 local function copyTextToClipboard(text)
-  game:GetService("UserInputService").SetClipboard(text)
+  game:GetService("UserOutputService").SetClipboard(text)
   print("Copied", text, "to clipboard.")
 end
 
