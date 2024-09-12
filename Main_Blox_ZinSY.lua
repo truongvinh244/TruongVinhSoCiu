@@ -2506,14 +2506,16 @@ end
 
 --- SexNhatBan 4k 240FPS
 
+local Main = Tabs.Main:AddSection("Info")
+
 Tabs.Main:AddButton({
     Title = "Facebook",
-    Description = "truongvinh24r",
+    Description = "truongvinh244",
     Callback = function()
         local linkToCopy = "https://www.facebook.com/truongvinh244"
         game:GetService("UserInputService"):SetClipboard(linkToCopy)
-        print("Đã sao chép link, vui lòng dán vào web để mở")
     end
 })
 
 --- Beta By VinhDepZaiKhoaiToDuKhongLo
+
