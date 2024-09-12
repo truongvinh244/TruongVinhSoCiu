@@ -6993,18 +6993,9 @@ spawn(function()
 end)
 end
 ----------------------------------------------------------------------------------------------------------------------------------------------
+local Info = Tabs.Info:AddSection("Info")
+
 Tabs.Info:AddButton({
-  Title = "Facebook",
-  Description = "user = truongvinh244",
-  Callback = function()
-    copyTextToClipboard("https://facebook.com/truongvinh244")
-  end
-})
-
-
-local Main = Tabs.Main:AddSection("Info")
-
-Tabs.Main:AddButton({
     Title = "Facebook",
     Description = "truongvinh244",
     Callback = function()
