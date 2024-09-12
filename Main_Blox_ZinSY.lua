@@ -6993,11 +6993,6 @@ spawn(function()
 end)
 end
 ----------------------------------------------------------------------------------------------------------------------------------------------
-local function copyTextToClipboard(text)
-  game:GetService("UserOutputService").SetClipboard(text)
-  print("Copied", text, "to clipboard.")
-end
-
 Tabs.Info:AddButton({
   Title = "Facebook",
   Description = "user = truongvinh244",
@@ -7005,3 +7000,16 @@ Tabs.Info:AddButton({
     copyTextToClipboard("https://facebook.com/truongvinh244")
   end
 })
+
+
+local Main = Tabs.Main:AddSection("Info")
+
+Tabs.Main:AddButton({
+    Title = "Facebook",
+    Description = "truongvinh244",
+    Callback = function()
+        local linkToCopy = "https://www.facebook.com/truongvinh244"
+        game:GetService("UserInputService"):SetClipboard(linkToCopy)
+    end
+})
+
