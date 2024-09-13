@@ -6993,14 +6993,17 @@ spawn(function()
 end)
 end
 ----------------------------------------------------------------------------------------------------------------------------------------------
-local Info = Tabs.Info:AddSection("Info")
-
-Tabs.info:AddButton({
-    Title = "Facebook",
-    Description = "truongvinh244",
+Tabs.Info:AddButton({
+    Title = "Facebook - truongvinh244",
+    Description = "Nhấn Để Sao Chép",
     Callback = function()
-        local linkToCopy = "https://www.facebook.com/truongvinh244" -- Thay thế bằng link chính xác
-        setclipboard(linkToCopy)
-        print("Link đã được copy vào clipboard!")
+        local textToCopy = "facebook.com/truongvinh244" -- Thay thế bằng văn bản bạn muốn sao chép
+        copyToClipboard(textToCopy)
     end
 })
+
+function copyToClipboard(text)
+    -- Giả sử bạn có một module Clipboard để sao chép
+    clipboard.SetText(text)
+    print("Đã Sao Chép" .. text)
+end
