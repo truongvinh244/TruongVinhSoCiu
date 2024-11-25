@@ -1974,7 +1974,7 @@ end
   function Tween2(P1)
     local Distance = (P1.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
     if Distance >= 1 then
-    Speed = 345
+    Speed = 369
     end
     game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart,TweenInfo.new(Distance/Speed, Enum.EasingStyle.Linear), {
       CFrame = P1
@@ -3275,7 +3275,7 @@ spawn(function()
 		while wait() do
 			if _G.CakePrince then
                 pcall(function()
-                    local CakeCFrame = CFrame.new(-2142.66821,71.2588654,-12327.4619,0.996939838,-4.33107843e-08,0.078172572,4.20252917e-08,1,1.80894251e-08,-0.078172572,-1.47488439e-08, 0.996939838)
+                    local CakeCFrame = CFrame.new(-2542.66821,70.2588654,-12327.4619,0.996939838,-4.33107843e-08,0.078172572,4.20252917e-08,1,1.80894251e-08,-0.078172572,-1.47488439e-08, 0.996939838)
                     toTarget(CakeCFrame)
 					if game.ReplicatedStorage:FindFirstChild("Cake Prince") or game:GetService("Workspace").Enemies:FindFirstChild("Cake Prince") then   
 						if game:GetService("Workspace").Enemies:FindFirstChild("Cake Prince") then
@@ -4656,7 +4656,7 @@ local SettingFarm = Tabs.Setting:AddSection("Farming")
                         if _G.BringMob and bringmob then
                             if v.Name == MonFarm and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
                                 if v.Name == "Factory Staff" then
-                                    if (v.HumanoidRootPart.Position - FarmPos.Position).Magnitude <= 300 then
+                                    if (v.HumanoidRootPart.Position - FarmPos.Position).Magnitude <= 250 then
                                         v.Head.CanCollide = false
                                         v.HumanoidRootPart.CanCollide = false
                                         v.HumanoidRootPart.Size = Vector3.new(1, 1, 1)
@@ -4696,7 +4696,7 @@ local SettingFarm = Tabs.Setting:AddSection("Farming")
                 v.HumanoidRootPart.CFrame = FarmPos
                 v.Humanoid.JumpPower = 0
                 v.Humanoid.WalkSpeed = 0
-                v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+                v.HumanoidRootPart.Size = Vector3.new(45,60,45)
                 v.HumanoidRootPart.CanCollide = false
                 v.Head.CanCollide = false
                 if v.Humanoid:FindFirstChild("Animator") then
@@ -4725,7 +4725,7 @@ local SettingFarm = Tabs.Setting:AddSection("Farming")
             if isnetworkowner then
             return isnetworkowner(object)
             else
-              if (object.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 350 then
+              if (object.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 370 then
             return true
             end
             return false
@@ -5887,7 +5887,7 @@ spawn(function()
 
 
 
-local ToggleRandomFruit = Tabs.Fruit:AddToggle("ToggleRandomFruit", {Title = "Random Fruit",Description = "Đổi Trái", Default = false })
+local ToggleRandomFruit = Tabs.Fruit:AddToggle("ToggleRandomFruit", {Title = "Random Fruit",Description = "Random Trái Blox", Default = false })
 ToggleRandomFruit:OnChanged(function(Value)
     _G.Random_Auto = Value
 end)
@@ -6394,7 +6394,7 @@ Tabs.Race:AddButton({
 local Mastery = Tabs.Race:AddSection("Auto Race")
 Tabs.Race:AddButton({
     Title = "Race Door",
-    Description = "Tộc Của bạn",
+    Description = "Bay Đến Cửa",
     Callback = function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(28286.35546875, 14895.3017578125, 102.62469482421875))
             wait(0.5)
