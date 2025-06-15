@@ -6,9 +6,9 @@ local Window = Fluent:CreateWindow({
     Title = "ZinSY Hub - Speed",
     SubTitle = "by truongvinh244",
     TabWidth = 160,
-    Size = UDim2.fromOffset(400, 310),
+    Size = UDim2.fromOffset(610, 452),
     Acrylic = true,
-    Theme = "Dark",
+    Theme = "Midnight",
     MinimizeKey = Enum.KeyCode.LeftControl
 })
 local Tabs = {
