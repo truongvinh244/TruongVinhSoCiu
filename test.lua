@@ -93,13 +93,19 @@ task.spawn(function()
         if _G.AutoTPGemsGf then
             for gemx, gem1 in ipairs(cityFolder:GetChildren()) do
                 if gem1.Name == "Gem" then
-                    hrp.CFrame = CFrame.new(gem1:GetChildren()[2].Position)
+                    pcall(function()
+                        local pos = gem1:GetChildren()[2]
+                        if pos and pos:IsA("BasePart") then
+                            hrp.CFrame = CFrame.new(pos.Position)
+                        end
+                    end)
+                    wait(0.5)
                 end
-                wait(0.5)
             end
         end
     end
 end)
+
 -- SpawmTab
 local SpawmTab = Tabs.Main:AddSection("Spawm Tab")
 local AutoTPSpawm = SpawmTab:AddToggle("AutoTPSpawm", {
