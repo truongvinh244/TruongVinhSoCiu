@@ -72,7 +72,9 @@ task.spawn(function()
     while wait(0.2) do
         if _G.AutoTPOrbsGf then
             for orbx, orb1 in ipairs(cityFolder:GetChildren()) do
-                hrp.CFrame = CFrame.new(orb1:GetChildren()[2].Position)
+                pcall(function()
+                    hrp.CFrame = CFrame.new(orb1:GetChildren()[2].Position)
+                end)
                 wait(0.1)
             end
         end
@@ -91,9 +93,13 @@ task.spawn(function()
         if _G.AutoTPGemsGf then
             for gemx, gem1 in ipairs(cityFolder:GetChildren()) do
                 if gem1.Name == "Gem" then
-                    local pos = gem1:GetChildren()[2]
-                    hrp.CFrame = CFrame.new(pos.Position)
-                    wait(0.1)
+                    pcall(function()
+                        local pos = gem1:GetChildren()[2]
+                        if pos and pos:IsA("BasePart") then
+                            hrp.CFrame = CFrame.new(pos.Position)
+                        end
+                    end)
+                    wait(0.11)
                 end
             end
         end
