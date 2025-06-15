@@ -15,7 +15,7 @@ local Tabs = {
     Main = Window:AddTab({ Title = "Main", Icon = "home" }),
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 }
-local Options = Fluent.Options
+local FluentOption = Fluent.Options
 Fluent:Notify({
     Title = "ZinSY Hub - Notification",
     Content = "Loading Done !",
@@ -45,7 +45,7 @@ local AutoTPHoops = HoopsTab:AddToggle("AutoTPHoops", {
 AutoTPHoops:OnChanged(function(Value)
     _G.AutoTPHoopsGf = Value
 end)
-Options.AutoTPHoops:SetValue(false)
+FluentOption.AutoTPHoops:SetValue(false)
 task.spawn(function()
     while wait(0.2) do
         if _G.AutoTPHoopsGf then
@@ -67,7 +67,7 @@ local AutoTPOrbs = OrbsTab:AddToggle("AutoTPOrbs", {
 AutoTPOrbs:OnChanged(function(Value)
     _G.AutoTPOrbsGf = Value
 end)
-Options.AutoTPOrbs:SetValue(false)
+FluentOption.AutoTPOrbs:SetValue(false)
 task.spawn(function()
     while wait(0.2) do
         if _G.AutoTPOrbsGf then
@@ -84,10 +84,10 @@ local AutoTPGems = OrbsTab:AddToggle("AutoTPGems", {
     Title = "Auto TP Gems",
     Description = "TP Tới Kim Cương",
     Default = false })
-AutoTPOrbs:OnChanged(function(Value)
+AutoTPGems:OnChanged(function(Value)
     _G.AutoTPGemsGf = Value
 end)
-Options.AutoTPGems:SetValue(false)
+FluentOption.AutoTPGems:SetValue(false)
 task.spawn(function()
     while wait(0.2) do
         if _G.AutoTPGemsGf then
@@ -95,7 +95,7 @@ task.spawn(function()
                 if gem1.Name == "Gem" then
                     hrp.CFrame = CFrame.new(gem1:GetChildren()[2].Position)
                 end
-                wait(0.05)
+                wait(0.5)
             end
         end
     end
@@ -109,7 +109,7 @@ local AutoTPSpawm = SpawmTab:AddToggle("AutoTPSpawm", {
 AutoTPSpawm:OnChanged(function(Value)
     _G.AutoTPSpawmGf = Value
 end)
-Options.AutoTPSpawm:SetValue(false)
+FluentOption.AutoTPSpawm:SetValue(false)
 task.spawn(function()
     while wait(0.2) do
         if _G.AutoTPSpawmGf then
