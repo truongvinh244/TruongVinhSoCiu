@@ -1,4 +1,3 @@
-local GuiService = game:GetService("GuiService")
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
@@ -24,21 +23,7 @@ Fluent:Notify({
     Duration = 8
 })
 -- close ui
-local ScreenGui = Instance.new("ScreenGui")
-local ImageButton = Instance.new("ImageButton")
-local UICorner = Instance.new("UICorner")
-ScreenGui.Parent = game.CoreGui
-ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-ImageButton.Parent = ScreenGui
-ImageButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-ImageButton.BorderSizePixel = 0
-ImageButton.Position = UDim2.new(0.019233337, 0, 0.1502590813, 0)
-ImageButton.Size = UDim2.new(0, 39, 0, 39)
-ImageButton.Draggable = true
-ImageButton.Image = "http://www.roblox.com/asset/?id=79051406542947"
-ImageButton.MouseButton1Down:connect(function()
-    game:GetService("VirtualInputManager"):SendKeyEvent(true,Enum.KeyCode.End,false,game)
-end)
+
 -- local 
 local hoopsFolder = workspace:WaitForChild("Hoops")
 local cityFolder = workspace:WaitForChild("orbFolder"):WaitForChild("City")
