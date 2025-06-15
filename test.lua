@@ -37,7 +37,7 @@ end)
 
 -- Create Script
 -- HoopsTab
-local HoopsTab = Tabs.Main:AddSection("Hoops Tab - Tab Vòng Nhảy")
+local HoopsTab = Tabs.Main:AddSection("Hoops Tab")
 local AutoTPHoops = HoopsTab:AddToggle("AutoTPHoops", {
     Title = "Auto TP Hoops",
     Description = "TP Tới Vòng Nhảy", 
@@ -59,7 +59,7 @@ task.spawn(function()
     end
 end)
 -- OrbsTabs
-local OrbsTab = Tabs.Main:AddSection("Orbs Tab - Tabs Quả Cầu Phát Sáng")
+local OrbsTab = Tabs.Main:AddSection("Orbs Tab")
 local AutoTPOrbs = OrbsTab:AddToggle("AutoTPOrbs", {
     Title = "Auto TP Orbs",
     Description = "TP Tới Quả Cầu Phát Sáng",
@@ -80,8 +80,28 @@ task.spawn(function()
         end
     end
 end)
+local AutoTPGems = OrbsTab:AddToggle("AutoTPGems", {
+    Title = "Auto TP Gems",
+    Description = "TP Tới Kim Cương",
+    Default = false })
+AutoTPOrbs:OnChanged(function(Value)
+    _G.AutoTPGemsGf = Value
+end)
+Options.AutoTPGems:SetValue(false)
+task.spawn(function()
+    while wait(0.2) do
+        if _G.AutoTPGemsGf then
+            for gemx, gem1 in ipairs(cityFolder:GetChildren()) do
+                if gem1.Name == "Gem" then
+                    hrp.CFrame = CFrame.new(gem1:GetChildren()[2].Position)
+                end
+                wait(0.05)
+            end
+        end
+    end
+end)
 -- SpawmTab
-local SpawmTab = Tabs.Main:AddSection("Spawm Tab - Tab Hồi Sinh")
+local SpawmTab = Tabs.Main:AddSection("Spawm Tab")
 local AutoTPSpawm = SpawmTab:AddToggle("AutoTPSpawm", {
     Title = "Auto TP Spawm",
     Description = "TP Tới Spawm Khi Tắt Orb Và Hoops",
@@ -98,3 +118,24 @@ task.spawn(function()
         end
     end
 end)
+
+local ServerTab = Tabs.Settings:AddSection("Server")
+ServerTab:AddButton({
+    Title = "Rejoin Server",
+    Description = "Tham Gia Lại Server",
+    Callback = function()
+        game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)
+    end
+})
+ServerTab:AddButton({
+    Title = "Fix Lag",
+    Description = "Giảm Lag",
+    Callback = function()
+        Fluent:Notify({
+            Title = "ZinSY Hub - Notification",
+            Content = "Error !",
+            SubContent = "Fix Lag Đang Được Phát Triển",
+            Duration = 8
+        })
+    end
+})
