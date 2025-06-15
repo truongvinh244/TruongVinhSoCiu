@@ -90,7 +90,7 @@ AutoTPSpawm:OnChanged(function(Value)
     _G.AutoTPSpawmGf = Value
 end)
 Options.AutoTPSpawm:SetValue(false)
-task.spawm(function()
+task.spawn(function()
     while wait(0.2) do
         if _G.AutoTPSpawmGf then
             hrp.CFrame = CFrame.new(500, 7, 412)
