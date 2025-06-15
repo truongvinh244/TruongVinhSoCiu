@@ -1,64 +1,53 @@
--- Main Ui
-local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
--- Create Ui
-local Window = Rayfield:CreateWindow({
-    Name = "ZinSY Hub - Grow A Garden",
-    Icon = 0,
-    LoadingTitle = "ZinSY Script",
-    LoadingSubtitle = "by TruongVinh.Dev",
-    Theme = "Amethyst",
-    ToggleUIKeybind = "K",
-    ConfigurationSaving = {
-        Enabled = true,
-        FolderName = nil,
-        FileName = "ZinSY_Script"
-    },
+local GuiService = game:GetService("GuiService")
+local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
+local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
+local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
+-- create tab window
+local Window = Fluent:CreateWindow({
+    Title = "ZinSY Hub - Speed",
+    SubTitle = "by truongvinh244",
+    TabWidth = 160,
+    Size = UDim2.fromOffset(400, 310),
+    Acrylic = true,
+    Theme = "Dark",
+    MinimizeKey = Enum.KeyCode.LeftControl
 })
--- Tab
-local Main = Window:CreateTab("Main", 4483362458)
--- Local 
-local player = game.Players.LocalPlayer
-local character = player.Character or player.CharacterAdded:Wait()
-local hrp = character:WaitForChild("HumanoidRootPart")
+local Tabs = {
+    Main = Window:AddTab({ Title = "Main", Icon = "home" }),
+    Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
+}
+local Options = Fluent.Options
+Fluent:Notify({
+    Title = "ZinSY Hub - Notification",
+    Content = "Loading Done !",
+    SubContent = "Script Của Bạn Đã Chạy Thành Công",
+    Duration = 8
+})
+
+-- local 
 local hoopsFolder = workspace:WaitForChild("Hoops")
 local cityFolder = workspace:WaitForChild("orbFolder"):WaitForChild("City")
--- Func Local Auto
+local player = game.Players.LocalPlayer
+local hrp = player.Character:WaitForChild("HumanoidRootPart")
+-- func local
 player.CharacterAdded:Connect(function(char)
     hrp = char:WaitForChild("HumanoidRootPart")
 end)
--- Func Main
+-- main func
 
 -- Create Script
-local AutoTPHoopsGf = nil
-local AutoTPHoops = Main:CreateToggle({
-    Name = "Auto TP Hoops",
-    CurrentValue = false,
-    Flag = "AutoTPHoopsFlag",
-    Callback = function(Value)
-        AutoTPHoopsGf = Value
-    end,
-})
-local AutoTPOrbsGf = nil
-local AutoTPOrbs = Main:CreateToggle({
-    Name = "Auto TP Orbs",
-    CurrentValue = false,
-    Flag = "AutoTPOrbsFlag",
-    Callback = function(Value)
-        AutoTPOrbsGf = Value
-    end,
-})
-local AutoTPHomeGf = nil
-local AutoTPHome = Main:CreateToggle({
-    Name = "Auto TP Home",
-    CurrentValue = false,
-    Flag = "AutoTPHomeFlag",
-    Callback = function(Value)
-        AutoTPHomeGf = Value
-    end,
-})
+local HoopsTab = Tabs.Main:AddSection("Hoops Tab - Tab Vòng Nhảy")
+local AutoTPHoops = HoopsTab:AddToggle("AutoTPHoops", {
+    Title = "Auto TP Hoops",
+    Description = "TP Tới Vòng Nhảy", 
+    Default = false })
+AutoTPHoops:OnChanged(function(Value)
+    _G.AutoTPHoopsGf = Value
+end)
+Options.AutoTPHoops:SetValue(false)
 task.spawn(function()
     while wait(0.2) do
-        if AutoTPHoopsGf then
+        if _G.AutoTPHoopsGf then
             for hoopsx, hoops1 in ipairs(hoopsFolder:GetChildren()) do
                 pcall(function()
                     hrp.CFrame = CFrame.new(hoops1.Position)
@@ -68,15 +57,41 @@ task.spawn(function()
         end
     end
 end)
+
+local OrbsTab = Tabs.Main:AddSection("Orbs Tab - Tabs Quả Cầu Phát Sáng")
+local AutoTPOrbs = OrbsTab:AddToggle("AutoTPOrbs", {
+    Title = "Auto TP Orbs",
+    Description = "TP Tới Quả Cầu Phát Sáng",
+    Default = false })
+AutoTPOrbs:OnChanged(function(Value)
+    _G.AutoTPOrbsGf = Value
+end)
+Options.AutoTPHoops:SetValue(false)
 task.spawn(function()
     while wait(0.2) do
-        if AutoTPOrbsGf then
+        if _G.AutoTPOrbsGf then
             for orbx, orb1 in ipairs(cityFolder:GetChildren()) do
                 pcall(function()
                     hrp.CFrame = CFrame.new(orb1:GetChildren()[2].Position)
                 end)
                 wait(0.1)
             end
+        end
+    end
+end)
+
+local SpawmTab = Tabs.Main:AddSection("Spawm Tab - Tab Hồi Sinh")
+local AutoTPSpawm = SpawmTab:AddToggle("AutoTPSpawm", {
+    Title = "Auto TP Spawm",
+    Description = "TP Tới Spawm Khi Tắt Orb Và Hoops",
+    Default = false })
+AutoTPOrbs:OnChanged(function(Value)
+    _G.AutoTPSpawmGf = Value
+end)
+task.spawm(function()
+    while wait(0.2) do
+        if _G.AutoTPSpawmGf then
+            hrp.CFrame = CFrame.new(500, 7, 412)
         end
     end
 end)
