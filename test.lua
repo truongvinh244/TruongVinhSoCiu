@@ -82,7 +82,7 @@ local AutoTPOrbs = OrbsTab:AddToggle("AutoTPOrbs", {
 AutoTPOrbs:OnChanged(function(Value)
     _G.AutoTPOrbsGf = Value
 end)
-Options.AutoTPHoops:SetValue(false)
+Options.AutoTPOrbs:SetValue(false)
 task.spawn(function()
     while wait(0.2) do
         if _G.AutoTPOrbsGf then
@@ -101,9 +101,10 @@ local AutoTPSpawm = SpawmTab:AddToggle("AutoTPSpawm", {
     Title = "Auto TP Spawm",
     Description = "TP Tới Spawm Khi Tắt Orb Và Hoops",
     Default = false })
-AutoTPOrbs:OnChanged(function(Value)
+AutoTPSpawm:OnChanged(function(Value)
     _G.AutoTPSpawmGf = Value
 end)
+Options.AutoTPSpawm:SetValue(false)
 task.spawm(function()
     while wait(0.2) do
         if _G.AutoTPSpawmGf then
